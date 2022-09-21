@@ -2,19 +2,23 @@
 {-# LANGUAGE NoRebindableSyntax #-}
 {-# OPTIONS_GHC -fno-warn-missing-import-lists #-}
 {-# OPTIONS_GHC -w #-}
+
 module Paths_metalamp_web_app (
     version,
-    getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir,
-    getDataFileName, getSysconfDir
-  ) where
-
+    getBinDir,
+    getLibDir,
+    getDynLibDir,
+    getDataDir,
+    getLibexecDir,
+    getDataFileName,
+    getSysconfDir,
+) where
 
 import qualified Control.Exception as Exception
 import qualified Data.List as List
-import Data.Version (Version(..))
+import Data.Version (Version (..))
 import System.Environment (getEnv)
 import Prelude
-
 
 #if defined(VERSION_base)
 
@@ -30,42 +34,36 @@ catchIO :: IO a -> (Exception.IOException -> IO a) -> IO a
 catchIO = Exception.catch
 
 version :: Version
-version = Version [0,0,0,0] []
+version = Version [0, 0, 0, 0] []
 
 getDataFileName :: FilePath -> IO FilePath
 getDataFileName name = do
-  dir <- getDataDir
-  return (dir `joinFileName` name)
+    dir <- getDataDir
+    return (dir `joinFileName` name)
 
 getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
-
-
-
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
-bindir     = "/home/gregor/.cabal/bin"
-libdir     = "/home/gregor/.cabal/lib/x86_64-linux-ghc-9.0.2/metalamp-web-app-0.0.0.0-inplace"
-dynlibdir  = "/home/gregor/.cabal/lib/x86_64-linux-ghc-9.0.2"
-datadir    = "/home/gregor/.cabal/share/x86_64-linux-ghc-9.0.2/metalamp-web-app-0.0.0.0"
+bindir = "/home/gregor/.cabal/bin"
+libdir = "/home/gregor/.cabal/lib/x86_64-linux-ghc-9.0.2/metalamp-web-app-0.0.0.0-inplace"
+dynlibdir = "/home/gregor/.cabal/lib/x86_64-linux-ghc-9.0.2"
+datadir = "/home/gregor/.cabal/share/x86_64-linux-ghc-9.0.2/metalamp-web-app-0.0.0.0"
 libexecdir = "/home/gregor/.cabal/libexec/x86_64-linux-ghc-9.0.2/metalamp-web-app-0.0.0.0"
 sysconfdir = "/home/gregor/.cabal/etc"
 
-getBinDir     = catchIO (getEnv "metalamp_web_app_bindir")     (\_ -> return bindir)
-getLibDir     = catchIO (getEnv "metalamp_web_app_libdir")     (\_ -> return libdir)
-getDynLibDir  = catchIO (getEnv "metalamp_web_app_dynlibdir")  (\_ -> return dynlibdir)
-getDataDir    = catchIO (getEnv "metalamp_web_app_datadir")    (\_ -> return datadir)
+getBinDir = catchIO (getEnv "metalamp_web_app_bindir") (\_ -> return bindir)
+getLibDir = catchIO (getEnv "metalamp_web_app_libdir") (\_ -> return libdir)
+getDynLibDir = catchIO (getEnv "metalamp_web_app_dynlibdir") (\_ -> return dynlibdir)
+getDataDir = catchIO (getEnv "metalamp_web_app_datadir") (\_ -> return datadir)
 getLibexecDir = catchIO (getEnv "metalamp_web_app_libexecdir") (\_ -> return libexecdir)
 getSysconfDir = catchIO (getEnv "metalamp_web_app_sysconfdir") (\_ -> return sysconfdir)
 
-
-
-
 joinFileName :: String -> String -> FilePath
-joinFileName ""  fname = fname
+joinFileName "" fname = fname
 joinFileName "." fname = fname
-joinFileName dir ""    = dir
+joinFileName dir "" = dir
 joinFileName dir fname
-  | isPathSeparator (List.last dir) = dir ++ fname
-  | otherwise                       = dir ++ pathSeparator : fname
+    | isPathSeparator (List.last dir) = dir ++ fname
+    | otherwise = dir ++ pathSeparator : fname
 
 pathSeparator :: Char
 pathSeparator = '/'

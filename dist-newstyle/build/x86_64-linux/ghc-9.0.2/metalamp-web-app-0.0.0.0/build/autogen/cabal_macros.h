@@ -20,6 +20,46 @@
   (major1) == 4 && (major2) <  15 || \
   (major1) == 4 && (major2) == 15 && (minor) <= 1)
 #endif /* MIN_VERSION_base */
+/* package beam-core-0.9.2.1 */
+#ifndef VERSION_beam_core
+#define VERSION_beam_core "0.9.2.1"
+#endif /* VERSION_beam_core */
+#ifndef MIN_VERSION_beam_core
+#define MIN_VERSION_beam_core(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  9 || \
+  (major1) == 0 && (major2) == 9 && (minor) <= 2)
+#endif /* MIN_VERSION_beam_core */
+/* package beam-sqlite-0.5.1.2 */
+#ifndef VERSION_beam_sqlite
+#define VERSION_beam_sqlite "0.5.1.2"
+#endif /* VERSION_beam_sqlite */
+#ifndef MIN_VERSION_beam_sqlite
+#define MIN_VERSION_beam_sqlite(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  5 || \
+  (major1) == 0 && (major2) == 5 && (minor) <= 1)
+#endif /* MIN_VERSION_beam_sqlite */
+/* package text-1.2.5.0 */
+#ifndef VERSION_text
+#define VERSION_text "1.2.5.0"
+#endif /* VERSION_text */
+#ifndef MIN_VERSION_text
+#define MIN_VERSION_text(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 5)
+#endif /* MIN_VERSION_text */
+/* package time-1.9.3 */
+#ifndef VERSION_time
+#define VERSION_time "1.9.3"
+#endif /* VERSION_time */
+#ifndef MIN_VERSION_time
+#define MIN_VERSION_time(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  9 || \
+  (major1) == 1 && (major2) == 9 && (minor) <= 3)
+#endif /* MIN_VERSION_time */
 
 /* tool alex-3.2.7.1 */
 #ifndef TOOL_VERSION_alex
